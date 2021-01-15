@@ -6,10 +6,10 @@ public class GameTile : MonoBehaviour
 {
 
     public GameObject GameController;
-    public GameObject DialEffectPrefab;
+    public GameObject DialEffectPrefab, MiningEffectPrefab;
     public GameObject up1, up2;
-    public int TileNumber;
-    public Sprite s0, s1, s2, s3;
+    public int TileNumber, MyResources;
+    public Sprite sprite0, sprite1, sprite2, sprite3;
     private int TileLevel; //0,1,2,3 minimum resources->max
     public bool isSet, isRevealed;
     // Start is called before the first frame update
@@ -30,11 +30,14 @@ public class GameTile : MonoBehaviour
         {
             Instantiate(DialEffectPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         }
-    
+        if(GameController.GetComponent<MiniGameController>().State == MiniGameController.States.ExtractMode)
+        {
+            Instantiate(MiningEffectPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        }
     }
 
-
-    private void OnCollisionStay2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Upgrade1")
         {
@@ -48,6 +51,12 @@ public class GameTile : MonoBehaviour
 
         if (collision.gameObject.tag == "ScanBox")
         {
+            this.isRevealed = true;
+        }
+
+        if (collision.gameObject.tag == "MiningBox")
+        {
+
 
         }
     }

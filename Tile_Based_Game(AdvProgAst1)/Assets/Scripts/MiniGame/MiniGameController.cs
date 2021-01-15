@@ -6,6 +6,8 @@ public class MiniGameController : MonoBehaviour
 {
     public enum States    { StartSetup, FinishSetup, EnterLocked, Locked, EnterScan, ScanMode, EnterExtract, ExtractMode, EnterEnd, EndGame }
     public States State = States.Locked;
+    public List<GameObject> GameTiles;
+    private int TileChoiceFailCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class MiniGameController : MonoBehaviour
         switch (State)
         {
             case States.StartSetup:
+
                 break;
             case States.FinishSetup:
                 break;

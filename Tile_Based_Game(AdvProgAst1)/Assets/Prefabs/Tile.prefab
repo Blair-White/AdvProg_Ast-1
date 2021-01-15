@@ -137,6 +137,8 @@ GameObject:
   - component: {fileID: 7980955109472784035}
   - component: {fileID: 7980955109472784044}
   - component: {fileID: 7980955109472784033}
+  - component: {fileID: -234484277033711530}
+  - component: {fileID: -6144399379287847374}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Untagged
@@ -272,12 +274,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameController: {fileID: 0}
   DialEffectPrefab: {fileID: 2745438618713481442, guid: cba079e4bbf89e64eb9be37ddd318d07, type: 3}
+  MiningEffectPrefab: {fileID: 2745438618713481442, guid: 1765a646192c9434eb55bf3b5dfdbebc, type: 3}
   up1: {fileID: 5086892593212539364}
   up2: {fileID: 2603043511255239351}
   TileNumber: 0
-  s0: {fileID: 21300000, guid: dcb4f40b027aa914f8010975999dd3a1, type: 3}
-  s1: {fileID: 21300000, guid: c6b95586327a56a44943fcb946de6801, type: 3}
-  s2: {fileID: 21300000, guid: 173e280d734e4e04396990ca0b13cf6b, type: 3}
-  s3: {fileID: 21300000, guid: e741fe6711bc4da4b8c74b98c8f759eb, type: 3}
+  sprite0: {fileID: 0}
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
   isSet: 0
   isRevealed: 0
+--- !u!61 &-234484277033711530
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980955109472784046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 36.62, y: 34.17}
+  m_EdgeRadius: 0
+--- !u!50 &-6144399379287847374
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980955109472784046}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

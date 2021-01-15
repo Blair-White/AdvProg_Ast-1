@@ -34,6 +34,7 @@ public class TileContainerStart : MonoBehaviour
                 tilesPlaced++;
                 delayCount = 0;
                 spawnCount++;
+                GameController.GetComponent<MiniGameController>().GameTiles.Add(g);
             }
             if(spawnCount > 24)
             {

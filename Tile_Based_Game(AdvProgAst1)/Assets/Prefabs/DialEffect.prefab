@@ -107,8 +107,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745438618481896868}
   m_LocalRotation: {x: -0, y: -0, z: -0.020812472, w: 0.9997834}
-  m_LocalPosition: {x: 0.669, y: -0.055, z: 0}
-  m_LocalScale: {x: 1, y: 1.1132812, z: 1}
+  m_LocalPosition: {x: 0.491, y: -0.047, z: 0}
+  m_LocalScale: {x: 0.6994566, y: 1.1132812, z: 1}
   m_Children: []
   m_Father: {fileID: 2745438618713481452}
   m_RootOrder: 1
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1417129026070388735}
   m_Layer: 0
   m_Name: pf_re_green
-  m_TagString: Untagged
+  m_TagString: ScanBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,8 +236,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745438619459774783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.677, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.12183649, z: 1}
+  m_LocalPosition: {x: 0.502, y: 0, z: 0}
+  m_LocalScale: {x: 0.71250004, y: 0.12183649, z: 1}
   m_Children: []
   m_Father: {fileID: 2745438618713481452}
   m_RootOrder: 0
