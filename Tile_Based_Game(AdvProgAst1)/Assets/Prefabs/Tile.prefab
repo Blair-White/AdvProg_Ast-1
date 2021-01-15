@@ -46,7 +46,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -108,7 +108,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -278,10 +278,11 @@ MonoBehaviour:
   up1: {fileID: 5086892593212539364}
   up2: {fileID: 2603043511255239351}
   TileNumber: 0
-  sprite0: {fileID: 0}
-  sprite1: {fileID: 0}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
+  MyResources: 0
+  sprite0: {fileID: 21300000, guid: dcb4f40b027aa914f8010975999dd3a1, type: 3}
+  sprite1: {fileID: 21300000, guid: c6b95586327a56a44943fcb946de6801, type: 3}
+  sprite2: {fileID: 21300000, guid: 173e280d734e4e04396990ca0b13cf6b, type: 3}
+  sprite3: {fileID: 21300000, guid: e741fe6711bc4da4b8c74b98c8f759eb, type: 3}
   isSet: 0
   isRevealed: 0
 --- !u!61 &-234484277033711530
@@ -327,7 +328,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Interpolate: 2
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7

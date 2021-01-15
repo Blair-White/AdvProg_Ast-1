@@ -31,10 +31,11 @@ public class TileContainerStart : MonoBehaviour
                     0
                     );
                 g.GetComponent<GameTile>().TileNumber = tilesPlaced;
-                tilesPlaced++;
+                
                 delayCount = 0;
                 spawnCount++;
-                GameController.GetComponent<MiniGameController>().GameTiles.Add(g);
+                GameController.GetComponent<MiniGameController>().GameTiles[tilesPlaced] = g;
+                tilesPlaced++;
             }
             if(spawnCount > 24)
             {
