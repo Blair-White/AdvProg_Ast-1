@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileContainerStart : MonoBehaviour
 {
-    private int delayCount, spawnCount, rowCount;
+    private int delayCount, spawnCount, rowCount, tilesPlaced;
     private bool initialized;
     public GameObject GameTile;
     private GameObject GameController;
@@ -30,6 +30,8 @@ public class TileContainerStart : MonoBehaviour
                     this.transform.position.y + rowCount * .45f, 
                     0
                     );
+                g.GetComponent<GameTile>().TileNumber = tilesPlaced;
+                tilesPlaced++;
                 delayCount = 0;
                 spawnCount++;
             }

@@ -7,6 +7,11 @@ public class GameTile : MonoBehaviour
 
     public GameObject GameController;
     public GameObject DialEffectPrefab;
+    public GameObject up1, up2;
+    public int TileNumber;
+    public Sprite s0, s1, s2, s3;
+    private int TileLevel; //0,1,2,3 minimum resources->max
+    public bool isSet, isRevealed;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,4 +32,27 @@ public class GameTile : MonoBehaviour
         }
     
     }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Upgrade1")
+        {
+
+        }
+
+        if(collision.gameObject.tag == "Upgrade2")
+        {
+
+        }
+
+        if (collision.gameObject.tag == "ScanBox")
+        {
+
+        }
+    }
+
+
+
+
 }

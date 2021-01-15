@@ -43,4 +43,30 @@ public class MiniGameController : MonoBehaviour
         }
     }
 
+
+
+
+    void ChooseTile()
+    { 
+    
+    }
+    void CheckTileDistance()
+    {
+
+    }
+
+    void ConfirmTile()
+    {
+
+    }
+
+    void UpgradeTile()
+    {
+
+    }
+
+    void SetAllUnMarked()
+    {
+
+    }
 }
