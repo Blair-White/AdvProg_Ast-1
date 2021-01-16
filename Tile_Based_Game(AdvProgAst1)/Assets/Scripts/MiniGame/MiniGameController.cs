@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class MiniGameController : MonoBehaviour
 {
-    public enum States    { StartSetup, FinishSetup, EnterLocked, Locked, Idle, EnterScan, ScanMode, EnterExtract, ExtractMode, EnterEnd, EndGame }
+    public enum States    { 
+        StartSetup, FinishSetup, EnterLocked, Locked, EnterIdle, Idle, 
+        EnterScan, ScanMode, EnterExtract, ExtractMode, EnterEnd, EndGame
+                          }
     public States State = States.Locked;
     public GameObject[] GameTiles;
     public GameObject[] ChosenTiles;
+    public GameObject ScoreText, ScorePopupPrefab, FeedBackPrefab; 
     private int TilesChosen;
     private bool DistanceFailed;
+    public int MiningFeedbackLevel, ScanningFeedbackLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +38,12 @@ public class MiniGameController : MonoBehaviour
                 break;
             case States.EnterLocked:
                 break;
-            case States.Idle:
-                break;
             case States.Locked:
+                break;
+            case States.EnterIdle:
+
+                break;
+            case States.Idle:
                 break;
             case States.EnterScan:
                 break;
