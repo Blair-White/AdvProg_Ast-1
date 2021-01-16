@@ -31,7 +31,8 @@ public class TileContainerStart : MonoBehaviour
                     0
                     );
                 g.GetComponent<GameTile>().TileNumber = tilesPlaced;
-                
+                g.GetComponent<GameTile>().mRow = rowCount * -1;
+                g.GetComponent<GameTile>().mColumn = spawnCount;
                 delayCount = 0;
                 spawnCount++;
                 GameController.GetComponent<MiniGameController>().GameTiles[tilesPlaced] = g;

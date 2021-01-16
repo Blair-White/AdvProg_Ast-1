@@ -10,14 +10,11 @@ public class MiniGameController : MonoBehaviour
     public GameObject[] GameTiles;
     public GameObject[] ChosenTiles;
     private int TilesChosen;
-    private int TileChoiceFailCount;
     private bool DistanceFailed;
     // Start is called before the first frame update
     void Start()
     {
-        
         State = States.Locked;
-
     }
 
     // Update is called once per frame
