@@ -2135,6 +2135,7 @@ MonoBehaviour:
   ScanningFeedbackLevel: 0
   HighlightButton: {r: 1, g: 1, b: 1, a: 1}
   UnHighlightButton: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  endingprefab: {fileID: 778898890670925464, guid: 065127ec3e4f52d48939b97fc0387e95, type: 3}
   mines: 0
   scans: 0
 --- !u!1 &361372826
@@ -2662,8 +2663,9 @@ GameObject:
   - component: {fileID: 663455088}
   - component: {fileID: 663455087}
   - component: {fileID: 663455086}
+  - component: {fileID: 663455089}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2890,6 +2892,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663455084}
   m_CullTransparentMesh: 0
+--- !u!114 &663455089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663455084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c23b5cd25077e243b04ab27ab05ac90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalScore: 0
+  PreviousScore: 0
 --- !u!1 &912187423
 GameObject:
   m_ObjectHideFlags: 0

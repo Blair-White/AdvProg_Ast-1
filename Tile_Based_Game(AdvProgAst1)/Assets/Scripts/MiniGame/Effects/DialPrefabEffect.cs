@@ -9,6 +9,7 @@ public class DialPrefabEffect : MonoBehaviour
     public bool isMining;
     private int delaysound;
     private GameObject mgr;
+    public GameObject FeedbackPrefab;
     private void Awake()
     {
         mgr = GameObject.Find("GameController");
@@ -30,7 +31,7 @@ public class DialPrefabEffect : MonoBehaviour
             {
                 SFXController.instance.PlayMining();
                 mgr.GetComponent<MiniGameController>().mines--;
-                mgr.GetComponent<MiniGameController>().ExtractsRemaining.GetComponent<TextMeshProUGUI>().text = mgr.GetComponent<MiniGameController>().mines.ToString();
+                mgr.GetComponent<MiniGameController>().ExtractsRemaining.GetComponent<TextMeshProUGUI>().text = mgr.GetComponent<MiniGameController>().mines.ToString();                
             }
             else 
             { 
@@ -43,8 +44,21 @@ public class DialPrefabEffect : MonoBehaviour
         destroyCount++;
         if (destroyCount > 420)
         {
-            GameObject.Destroy(this.gameObject);
+                       
             mgr.GetComponent<MiniGameController>().State = MiniGameController.States.EnterIdle;
+            GameObject g = Instantiate(FeedbackPrefab);
+            if(isMining)
+            {
+                g.GetComponent<FeedBackPrefab>().isMining = isMining;
+                g.GetComponent<FeedBackPrefab>().level = mgr.GetComponent<MiniGameController>().MiningFeedbackLevel;
+            }
+            else
+            {
+                g.GetComponent<FeedBackPrefab>().isMining = isMining;
+                g.GetComponent<FeedBackPrefab>().level = mgr.GetComponent<MiniGameController>().ScanningFeedbackLevel;
+            }
+
+            GameObject.Destroy(this.gameObject);
         }  
             
         this.transform.Rotate(0, 0, this.transform.rotation.z + 1);

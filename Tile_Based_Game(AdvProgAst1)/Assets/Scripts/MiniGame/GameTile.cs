@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameTile : MonoBehaviour
 {
 
-    public GameObject GameController;
+    public GameObject GameController;//should be singleton but its finnnnneeee...
     public GameObject DialEffectPrefab, MiningEffectPrefab;
     public int TileNumber, mRow, mColumn, MyResources;
     public Sprite sprite0, sprite1, sprite2, sprite3, myRevealedSprite;
@@ -32,11 +32,16 @@ public class GameTile : MonoBehaviour
         }
         if(GameController.GetComponent<MiniGameController>().State == MiniGameController.States.ExtractMode)
         {
+            if (GameController.GetComponent<MiniGameController>().MiningFeedbackLevel < TileLevel)
+                GameController.GetComponent<MiniGameController>().MiningFeedbackLevel = TileLevel;
+            GameObject g = GameObject.Find("ScoreText");
+            g.SendMessage("AddScore", TileLevel, SendMessageOptions.RequireReceiver);
             I_Drink_Your_MilkShake();
             isSet = false;
             this.SetTile(0);
             RevealTile();
             Instantiate(MiningEffectPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            
         }
 
     }
@@ -96,10 +101,13 @@ public class GameTile : MonoBehaviour
         {
             this.isRevealed = true;
             RevealTile();
+            if (GameController.GetComponent<MiniGameController>().ScanningFeedbackLevel < TileLevel)
+                GameController.GetComponent<MiniGameController>().ScanningFeedbackLevel = TileLevel;
         }
 
         if (collision.gameObject.tag == "MiningBox")
         {
+            
             this.SetTile(this.TileLevel - 1);
             RevealTile();
         }
@@ -172,7 +180,7 @@ public class GameTile : MonoBehaviour
 
     bool AssessTile(int Tile, int Row)
     {
-        if (Tile < 0 || Tile > 501) return false;
+        if (Tile < 0 || Tile > 500) return false;
         if (GameController.GetComponent<MiniGameController>().GameTiles[Tile].GetComponent<GameTile>().mRow != Row) return false;
         if (GameController.GetComponent<MiniGameController>().GameTiles[Tile].GetComponent<GameTile>().mRow < 0
             ||

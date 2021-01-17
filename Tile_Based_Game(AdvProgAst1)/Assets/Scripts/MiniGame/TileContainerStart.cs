@@ -20,7 +20,7 @@ public class TileContainerStart : MonoBehaviour
         if(!initialized)
         {
             delayCount++;
-            if(delayCount > 5)
+            if(delayCount > 1)
             {
                 GameObject g = Instantiate(GameTile, this.transform);
                 g.transform.position = 

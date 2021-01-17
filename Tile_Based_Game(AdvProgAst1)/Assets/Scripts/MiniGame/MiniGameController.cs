@@ -18,7 +18,7 @@ public class MiniGameController : MonoBehaviour
     private bool DistanceFailed;
     public int MiningFeedbackLevel, ScanningFeedbackLevel;
     public Color HighlightButton, UnHighlightButton;
-
+    public GameObject endingprefab;
     public int mines, scans;
     // Start is called before the first frame update
     void Start()
@@ -50,13 +50,15 @@ public class MiniGameController : MonoBehaviour
                 ScanningButton.GetComponent<Image>().color = UnHighlightButton;
                 ExtractButton.GetComponent<Button>().enabled = false;
                 ScanningButton.GetComponent<Button>().enabled = false;
-                
+
                 State = States.Locked;
                 break;
             case States.Locked:
                 break;
             case States.EnterIdle:
+                if (mines <= 0) {State = States.EnterEnd; return; }
                 ExtractButton.GetComponent<Button>().enabled = true;
+                if(scans > 0)
                 ScanningButton.GetComponent<Button>().enabled = true;
                 ExtractButton.GetComponent<Image>().color = UnHighlightButton;
                 ScanningButton.GetComponent<Image>().color = UnHighlightButton;
@@ -80,6 +82,12 @@ public class MiniGameController : MonoBehaviour
             case States.EnterEnd:
                 ExtractButton.gameObject.SetActive(false);
                 ScanningButton.gameObject.SetActive(false);
+                for(int i = 0; i < GameTiles.Length; i++)
+                {
+                    GameTiles[i].SetActive(false);
+                }
+                Instantiate(endingprefab);
+                State = States.EndGame;
                 break;
             case States.EndGame:
                 break;
@@ -103,7 +111,8 @@ public class MiniGameController : MonoBehaviour
         DistanceFailed = false;
         if(TilesChosen == 0)
         {
-            int r = Random.Range(0, 499);
+         
+            int r = Random.Range(50, 445);
             GameTiles[r].SendMessage("SetTile", 3);
             ChosenTiles[0] = GameTiles[r];
             TilesChosen++;
