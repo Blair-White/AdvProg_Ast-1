@@ -174,6 +174,10 @@ public class GameTile : MonoBehaviour
     {
         if (Tile < 0 || Tile > 501) return false;
         if (GameController.GetComponent<MiniGameController>().GameTiles[Tile].GetComponent<GameTile>().mRow != Row) return false;
+        if (GameController.GetComponent<MiniGameController>().GameTiles[Tile].GetComponent<GameTile>().mRow < 0
+            ||
+            (GameController.GetComponent<MiniGameController>().GameTiles[Tile].GetComponent<GameTile>().mRow > 20))
+            return false;
         return true;
     }
 

@@ -2124,11 +2124,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ScoreText: {fileID: 0}
+  ScoreText: {fileID: 663455084}
   ScorePopupPrefab: {fileID: 0}
-  FeedBackPrefab: {fileID: 0}
+  FeedBackPrefab: {fileID: 778898890670925464, guid: 61cbd74e1a029ce4688c9632ba3e0e26, type: 3}
+  ExtractButton: {fileID: 1555257451}
+  ScanningButton: {fileID: 912187423}
+  ExtractsRemaining: {fileID: 1480328122}
+  ScansRemaining: {fileID: 1153889455}
   MiningFeedbackLevel: 0
   ScanningFeedbackLevel: 0
+  HighlightButton: {r: 1, g: 1, b: 1, a: 1}
+  UnHighlightButton: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  mines: 0
+  scans: 0
 --- !u!1 &361372826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,7 +2973,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 912187426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 316533708}
+        m_TargetAssemblyTypeName: MiniGameController, Assembly-CSharp
+        m_MethodName: ScanningPushed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &912187426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3538,7 +3558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5852,7 +5872,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1555257454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 316533708}
+        m_TargetAssemblyTypeName: MiniGameController, Assembly-CSharp
+        m_MethodName: MiningPushed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1555257454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6196,7 +6228,7 @@ MonoBehaviour:
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
-  endValueString: Acquire as much Crystal as possible within these three attempts.
+  endValueString: Acquire as much resources as possible within these three attempts.
     Good Luck.
   endValueRect:
     serializedVersion: 2

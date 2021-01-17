@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MiniGameController : MonoBehaviour
 {
@@ -12,14 +13,19 @@ public class MiniGameController : MonoBehaviour
     public States State = States.Locked;
     public GameObject[] GameTiles;
     public GameObject[] ChosenTiles;
-    public GameObject ScoreText, ScorePopupPrefab, FeedBackPrefab; 
+    public GameObject ScoreText, ScorePopupPrefab, FeedBackPrefab, ExtractButton, ScanningButton, ExtractsRemaining, ScansRemaining; 
     private int TilesChosen;
     private bool DistanceFailed;
     public int MiningFeedbackLevel, ScanningFeedbackLevel;
+    public Color HighlightButton, UnHighlightButton;
+
+    public int mines, scans;
     // Start is called before the first frame update
     void Start()
     {
         State = States.Locked;
+        mines = 3;
+        scans = 6;
     }
 
     // Update is called once per frame
@@ -34,26 +40,46 @@ public class MiniGameController : MonoBehaviour
             case States.FinishSetup:
                 Debug.Log("Finished Setup");
                 SetAllUnMarked();
-                State = States.Idle;
+                State = States.EnterExtract;
+                ScanningButton.GetComponent<Image>().color = UnHighlightButton;
+                ExtractButton.GetComponent<Button>().enabled = true;
+                ScanningButton.GetComponent<Button>().enabled = true;
                 break;
             case States.EnterLocked:
+                ExtractButton.GetComponent<Image>().color = UnHighlightButton;
+                ScanningButton.GetComponent<Image>().color = UnHighlightButton;
+                ExtractButton.GetComponent<Button>().enabled = false;
+                ScanningButton.GetComponent<Button>().enabled = false;
+                
+                State = States.Locked;
                 break;
             case States.Locked:
                 break;
             case States.EnterIdle:
-
+                ExtractButton.GetComponent<Button>().enabled = true;
+                ScanningButton.GetComponent<Button>().enabled = true;
+                ExtractButton.GetComponent<Image>().color = UnHighlightButton;
+                ScanningButton.GetComponent<Image>().color = UnHighlightButton;
                 break;
             case States.Idle:
                 break;
             case States.EnterScan:
+                ExtractButton.GetComponent<Image>().color = UnHighlightButton;
+                ScanningButton.GetComponent<Image>().color = HighlightButton;
+                State = States.ScanMode;
                 break;
             case States.ScanMode:
                 break;
             case States.EnterExtract:
+                ExtractButton.GetComponent<Image>().color = HighlightButton;
+                ScanningButton.GetComponent<Image>().color = UnHighlightButton;
+                State = States.ExtractMode;
                 break;
             case States.ExtractMode:
                 break;
             case States.EnterEnd:
+                ExtractButton.gameObject.SetActive(false);
+                ScanningButton.gameObject.SetActive(false);
                 break;
             case States.EndGame:
                 break;
@@ -62,8 +88,15 @@ public class MiniGameController : MonoBehaviour
         }
     }
 
+    public void MiningPushed()
+    {
+        State = States.EnterExtract;
+    }
 
-
+    public void ScanningPushed()
+    {
+        State = States.EnterScan;
+    }
 
     void ChooseTile()
     {
