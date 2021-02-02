@@ -20,6 +20,9 @@ public class ScoreText : MonoBehaviour
 
     }
 
+
+
+
     public void AddScore(int level)
     {
         switch (level)

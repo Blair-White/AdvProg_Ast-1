@@ -9,12 +9,14 @@ public class IntroController : MonoBehaviour
     float timing;
     bool init;
     AudioSource aud;
+
     private void Awake()
     {
        
         DOTween.SetTweensCapacity(500,50);
         aud = this.GetComponent<AudioSource>();
     }
+
     public void Update()
     {
         timing += Time.deltaTime;
@@ -26,6 +28,7 @@ public class IntroController : MonoBehaviour
             
         
     }
+
     public void MoveToGame()
     {
         SceneManager.LoadScene(1);

@@ -8,6 +8,8 @@ public class TileContainerStart : MonoBehaviour
     private bool initialized;
     public GameObject GameTile;
     private GameObject GameController;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +40,14 @@ public class TileContainerStart : MonoBehaviour
                 GameController.GetComponent<MiniGameController>().GameTiles[tilesPlaced] = g;
                 tilesPlaced++;
             }
+
             if(spawnCount > 24)
             {
                 rowCount--;
                 spawnCount = 0;
                
             }
+
             if(rowCount <= -20)
             {
                 initialized = true;

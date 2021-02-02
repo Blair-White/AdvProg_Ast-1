@@ -15,6 +15,7 @@ public class DialPrefabEffect : MonoBehaviour
         mgr = GameObject.Find("GameController");
         mgr.GetComponent<MiniGameController>().State = MiniGameController.States.EnterLocked;
     }
+
     // Start is called before the first frame update
     void Start()
     {

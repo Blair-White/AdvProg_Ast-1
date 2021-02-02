@@ -13,6 +13,8 @@ public class FeedBackPrefab : MonoBehaviour
     private int textchoice;
     public string[] myMiningTexts, myScanningTexts; //lvl 111,222,333. 
     // Start is called before the first frame update
+
+
     void Start()
     {
        mgr = GameObject.Find("GameController");

@@ -6,10 +6,22 @@ using TMPro;
 
 public class MiniGameController : MonoBehaviour
 {
-    public enum States    { 
-        StartSetup, FinishSetup, EnterLocked, Locked, EnterIdle, Idle, 
-        EnterScan, ScanMode, EnterExtract, ExtractMode, EnterEnd, EndGame
-                          }
+    public enum States  
+    { 
+        StartSetup,
+        FinishSetup, 
+        EnterLocked, 
+        Locked,
+        EnterIdle,
+        Idle, 
+        EnterScan,
+        ScanMode, EnterExtract,
+        ExtractMode,
+        EnterEnd, 
+        EndGame
+    }
+
+
     public States State = States.Locked;
     public GameObject[] GameTiles;
     public GameObject[] ChosenTiles;
@@ -21,6 +33,7 @@ public class MiniGameController : MonoBehaviour
     public GameObject endingprefab;
     public int mines, scans;
     // Start is called before the first frame update
+
     void Start()
     {
         State = States.Locked;
@@ -37,6 +50,7 @@ public class MiniGameController : MonoBehaviour
                 ChooseTile();
                 if (TilesChosen > 5) State = States.FinishSetup;
                 break;
+
             case States.FinishSetup:
                 Debug.Log("Finished Setup");
                 SetAllUnMarked();
@@ -45,6 +59,7 @@ public class MiniGameController : MonoBehaviour
                 ExtractButton.GetComponent<Button>().enabled = true;
                 ScanningButton.GetComponent<Button>().enabled = true;
                 break;
+
             case States.EnterLocked:
                 ExtractButton.GetComponent<Image>().color = UnHighlightButton;
                 ScanningButton.GetComponent<Image>().color = UnHighlightButton;
@@ -53,8 +68,10 @@ public class MiniGameController : MonoBehaviour
 
                 State = States.Locked;
                 break;
+
             case States.Locked:
                 break;
+
             case States.EnterIdle:
                 if (mines <= 0) {State = States.EnterEnd; return; }
                 ExtractButton.GetComponent<Button>().enabled = true;
@@ -63,22 +80,28 @@ public class MiniGameController : MonoBehaviour
                 ExtractButton.GetComponent<Image>().color = UnHighlightButton;
                 ScanningButton.GetComponent<Image>().color = UnHighlightButton;
                 break;
+
             case States.Idle:
                 break;
+
             case States.EnterScan:
                 ExtractButton.GetComponent<Image>().color = UnHighlightButton;
                 ScanningButton.GetComponent<Image>().color = HighlightButton;
                 State = States.ScanMode;
                 break;
+
             case States.ScanMode:
                 break;
+
             case States.EnterExtract:
                 ExtractButton.GetComponent<Image>().color = HighlightButton;
                 ScanningButton.GetComponent<Image>().color = UnHighlightButton;
                 State = States.ExtractMode;
                 break;
+
             case States.ExtractMode:
                 break;
+
             case States.EnterEnd:
                 ExtractButton.gameObject.SetActive(false);
                 ScanningButton.gameObject.SetActive(false);
@@ -89,8 +112,10 @@ public class MiniGameController : MonoBehaviour
                 Instantiate(endingprefab);
                 State = States.EndGame;
                 break;
+
             case States.EndGame:
                 break;
+
             default:
                 break;
         }
